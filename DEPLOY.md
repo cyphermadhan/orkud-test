@@ -40,7 +40,10 @@ The frontend is already configured. Make sure you have:
    - **Build command**: `cd client && npm install && npm run build`
    - **Build output directory**: `client/dist`
    - **Root directory**: `/` (leave as root)
-   - **⚠️ IMPORTANT: Deploy command** - Leave this field **COMPLETELY EMPTY** or delete any value. Cloudflare Pages automatically deploys the build output - you do NOT need a deploy command. If you see `npx wrangler deploy` or any deploy command, remove it!
+   - **Deploy command**: 
+     - **If the field is optional**: Leave it **EMPTY** (Cloudflare Pages auto-deploys)
+     - **If the field is required**: Use this minimal command: `echo "Build complete, deploying from client/dist"`
+     - **⚠️ DO NOT use**: `npx wrangler deploy` (this is for Workers, not Pages)
 
 4. **Environment Variables**
    Add these in the Environment Variables section:
@@ -183,8 +186,12 @@ Configure your backend hosting service to use a custom domain (varies by provide
 ### Frontend Issues:
 
 - **"Missing entry-point to Worker script" error**: 
-  - **Problem**: You have a deploy command set in Cloudflare Pages settings
-  - **Solution**: Go to your Cloudflare Pages project → Settings → Builds & deployments → Remove/clear the "Deploy command" field. Leave it empty!
+  - **Problem**: You have `npx wrangler deploy` or similar Workers command in the deploy command field
+  - **Solution**: 
+    1. Go to your Cloudflare Pages project → Settings → Builds & deployments
+    2. If deploy command is optional: Remove/clear it completely
+    3. If deploy command is required: Use `echo "Build complete, deploying from client/dist"` instead
+    4. Make sure you're configuring **Pages**, not **Workers**
   
 - **404 on routes**: Make sure `_redirects` file exists in `client/public/`
 - **API calls failing**: Check `VITE_API_URL` environment variable
