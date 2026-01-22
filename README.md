@@ -86,3 +86,18 @@ This will start:
 - **Frontend**: React, React Router, Axios, Vite
 - **Backend**: Node.js, Express
 - **Storage**: JSON file (simple file-based storage)
+
+## Deployment
+
+For detailed deployment instructions, see [DEPLOY.md](./DEPLOY.md)
+
+### Quick Deploy to Cloudflare Pages
+
+1. **Deploy Backend** to Railway, Render, or Fly.io
+2. **Deploy Frontend** to Cloudflare Pages:
+   - Connect your GitHub repository
+   - Build command: `cd client && npm install && npm run build`
+   - Build output: `client/dist`
+   - Environment variable: `VITE_API_URL` = your backend URL
+
+See [DEPLOY.md](./DEPLOY.md) for complete instructions.
