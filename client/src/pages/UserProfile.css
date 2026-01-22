@@ -1,0 +1,171 @@
+.user-profile {
+  width: 100%;
+}
+
+.user-profile-loading,
+.user-profile-error {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.profile-header {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+
+.profile-avatar-large {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 40px;
+  flex-shrink: 0;
+}
+
+.profile-info-main {
+  flex: 1;
+}
+
+.profile-username {
+  font-size: 28px;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.profile-bio {
+  font-size: 16px;
+  color: #4b5563;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.profile-stats {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #111827;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.follow-button {
+  background: #6366f1;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.follow-button:hover {
+  background: #4f46e5;
+}
+
+.follow-button.following {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.follow-button.following:hover {
+  background: #d1d5db;
+}
+
+.edit-profile-link {
+  display: inline-block;
+  background: #6366f1;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.edit-profile-link:hover {
+  background: #4f46e5;
+}
+
+.profile-posts-section {
+  margin-top: 30px;
+}
+
+.posts-section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.no-posts {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
+  font-size: 16px;
+  background: white;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .profile-avatar-large {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+  }
+
+  .profile-username {
+    font-size: 24px;
+  }
+
+  .profile-stats {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .stat-value {
+    font-size: 20px;
+  }
+}
