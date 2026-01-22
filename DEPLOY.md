@@ -40,6 +40,7 @@ The frontend is already configured. Make sure you have:
    - **Build command**: `cd client && npm install && npm run build`
    - **Build output directory**: `client/dist`
    - **Root directory**: `/` (leave as root)
+   - **⚠️ IMPORTANT: Deploy command** - Leave this field **COMPLETELY EMPTY** or delete any value. Cloudflare Pages automatically deploys the build output - you do NOT need a deploy command. If you see `npx wrangler deploy` or any deploy command, remove it!
 
 4. **Environment Variables**
    Add these in the Environment Variables section:
@@ -71,9 +72,11 @@ cd client
 npm install
 npm run build
 
-# Deploy
+# Deploy to Pages (NOT Workers!)
 wrangler pages deploy dist --project-name=orkud
 ```
+
+**Note**: This uses `wrangler pages deploy` (for Pages), NOT `wrangler deploy` (for Workers). Make sure you're using the Pages command.
 
 ---
 
@@ -179,6 +182,10 @@ Configure your backend hosting service to use a custom domain (varies by provide
 
 ### Frontend Issues:
 
+- **"Missing entry-point to Worker script" error**: 
+  - **Problem**: You have a deploy command set in Cloudflare Pages settings
+  - **Solution**: Go to your Cloudflare Pages project → Settings → Builds & deployments → Remove/clear the "Deploy command" field. Leave it empty!
+  
 - **404 on routes**: Make sure `_redirects` file exists in `client/public/`
 - **API calls failing**: Check `VITE_API_URL` environment variable
 - **Build fails**: Check build logs in Cloudflare dashboard
